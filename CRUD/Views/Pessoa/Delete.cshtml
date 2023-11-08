@@ -1,0 +1,32 @@
+﻿@model CRUD.Models.Pessoa
+
+@{
+    ViewData["Title"] = "Deletar Pessoa";
+}
+<h2>Deseja deletar esta pessoa ?</h2>
+<br />
+<h3><strong>Atenção !!! Ao confirmar a exclusão, não será possível reverter a operação</strong></h3>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-md-3">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class="col-md-9">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+    </dl>
+    <hr />
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="PessoaId" />
+        <input type="submit" value="Deletar Pessoa" class="btn btn-danger" onclick="return confirm('Confirma a exclusão desta pessoa?')" /> |
+        <a asp-action="Index" class="btn btn-outline-info">Retornar</a>
+    </form>
+</div>
